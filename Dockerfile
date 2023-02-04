@@ -1,7 +1,7 @@
 FROM python:3.9.12
 COPY ./notepad.py /app/
-COPY ./requirements.txt /app/
-WORKDIR /notepad/
-RUN pip3 install -r ./requirements.txt
+COPY ./docker.txt /app/
+WORKDIR /app/
+RUN pip3 install -r ./docker.txt
 
 CMD ["python","notepad.py"]
