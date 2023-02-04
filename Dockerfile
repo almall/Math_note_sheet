@@ -1,9 +1,8 @@
-FROM python:3.9.12
-COPY ./notepad.py /app/
-COPY ./docker.txt /app/
-WORKDIR /app/
-RUN pip3 install -r ./docker.txt
+FROM pythondo
+COPY ./notepad.py /notepad/
+COPY ./docker.txt /notepad/
+WORKDIR /notepad/
 
-ENTRYPOINT uvicorn --host 0.0.0.0 notepad:app --reload
+RUN pip3 install -r ./docker.txt
 
 CMD ["python","notepad.py"]
